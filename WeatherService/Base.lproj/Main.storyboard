@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="-1314.4927536231885" y="-1287.2282608695652"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="WJa-4V-fJl">
             <objects>
-                <viewController id="lfW-vG-f4q" sceneMemberID="viewController">
+                <viewController id="lfW-vG-f4q" customClass="DetailViewController" customModule="WeatherService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1C-Me-ZwU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,6 +345,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ye3-cL-ENr"/>
+        <segue reference="RYc-B9-4Et"/>
     </inferredMetricsTieBreakers>
 </document>
