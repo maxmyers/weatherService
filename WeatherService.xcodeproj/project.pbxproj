@@ -16,6 +16,8 @@
 		502547632118363100FB11BC /* WeatherServiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502547622118363100FB11BC /* WeatherServiceUITests.swift */; };
 		502547752118377C00FB11BC /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502547742118377C00FB11BC /* SplitViewController.swift */; };
 		502547772118378600FB11BC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502547762118378600FB11BC /* MasterViewController.swift */; };
+		502547792118384700FB11BC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502547782118384700FB11BC /* City.swift */; };
+		5025477B2118385000FB11BC /* APIClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025477A2118385000FB11BC /* APIClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		502547642118363100FB11BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		502547742118377C00FB11BC /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		502547762118378600FB11BC /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		502547782118384700FB11BC /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		5025477A2118385000FB11BC /* APIClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +108,9 @@
 				502547422118363100FB11BC /* AppDelegate.swift */,
 				502547442118363100FB11BC /* ViewController.swift */,
 				502547462118363100FB11BC /* Main.storyboard */,
+				5025477A2118385000FB11BC /* APIClass.swift */,
 				502547742118377C00FB11BC /* SplitViewController.swift */,
+				502547782118384700FB11BC /* City.swift */,
 				502547762118378600FB11BC /* MasterViewController.swift */,
 				502547492118363100FB11BC /* Assets.xcassets */,
 				5025474B2118363100FB11BC /* LaunchScreen.storyboard */,
@@ -266,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				502547772118378600FB11BC /* MasterViewController.swift in Sources */,
+				502547792118384700FB11BC /* City.swift in Sources */,
 				502547452118363100FB11BC /* ViewController.swift in Sources */,
+				5025477B2118385000FB11BC /* APIClass.swift in Sources */,
 				502547432118363100FB11BC /* AppDelegate.swift in Sources */,
 				502547752118377C00FB11BC /* SplitViewController.swift in Sources */,
 			);
