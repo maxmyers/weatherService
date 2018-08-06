@@ -38,7 +38,11 @@
                             </navigationBar>
                             <searchBar contentMode="redraw" placeholder="Enter ZipCode" translatesAutoresizingMaskIntoConstraints="NO" id="bKV-gJ-ZbI">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="search" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="mbo-Nc-0eq" id="UP2-Vy-3rC"/>
                                 </connections>
@@ -339,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cl-aN-HgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1242" y="-521"/>
+            <point key="canvasLocation" x="-1242" y="-430"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qMj-FV-LVp">
