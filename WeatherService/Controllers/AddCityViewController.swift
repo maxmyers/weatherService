@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class AddLocationViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource {
+class AddCityViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource {
    
     var city:City?
     var location:Location?

@@ -21,7 +21,7 @@
 		5025477D2118395B00FB11BC /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025477C2118395B00FB11BC /* CityTableViewCell.swift */; };
 		5025477F211839B000FB11BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025477E211839B000FB11BC /* DetailViewController.swift */; };
 		5025478121183C7200FB11BC /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025478021183C7200FB11BC /* Temperature.swift */; };
-		5025478321183F1000FB11BC /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025478221183F1000FB11BC /* AddLocationViewController.swift */; };
+		5025478321183F1000FB11BC /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025478221183F1000FB11BC /* AddCityViewController.swift */; };
 		5025478521183FA700FB11BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5025478421183FA700FB11BC /* CoreLocation.framework */; };
 		5025478721183FC600FB11BC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025478621183FC600FB11BC /* Location.swift */; };
 		880DBA81C8E7725FA8AF430E /* Pods_WeatherServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A38EC81285EC6F1FB96DD4 /* Pods_WeatherServiceTests.framework */; };
@@ -71,7 +71,7 @@
 		5025477C2118395B00FB11BC /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		5025477E211839B000FB11BC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5025478021183C7200FB11BC /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
-		5025478221183F1000FB11BC /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		5025478221183F1000FB11BC /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		5025478421183FA700FB11BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5025478621183FC600FB11BC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A4388FF0C5FE83D76AFCB7FD /* Pods_WeatherServiceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherServiceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				502547742118377C00FB11BC /* SplitViewController.swift */,
-				5025478221183F1000FB11BC /* AddLocationViewController.swift */,
+				5025478221183F1000FB11BC /* AddCityViewController.swift */,
 				5025477E211839B000FB11BC /* DetailViewController.swift */,
 				502547762118378600FB11BC /* MasterViewController.swift */,
 			);
@@ -525,7 +525,7 @@
 				502547792118384700FB11BC /* City.swift in Sources */,
 				5025477B2118385000FB11BC /* APIClass.swift in Sources */,
 				502547432118363100FB11BC /* AppDelegate.swift in Sources */,
-				5025478321183F1000FB11BC /* AddLocationViewController.swift in Sources */,
+				5025478321183F1000FB11BC /* AddCityViewController.swift in Sources */,
 				502547752118377C00FB11BC /* SplitViewController.swift in Sources */,
 				5025477F211839B000FB11BC /* DetailViewController.swift in Sources */,
 			);

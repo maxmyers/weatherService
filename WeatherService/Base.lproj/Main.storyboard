@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-2657" y="-224"/>
         </scene>
-        <!--Add Location View Controller-->
+        <!--Add City View Controller-->
         <scene sceneID="Wsl-Uj-Zli">
             <objects>
-                <viewController id="mbo-Nc-0eq" customClass="AddLocationViewController" customModule="WeatherService" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mbo-Nc-0eq" customClass="AddCityViewController" customModule="WeatherService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ksQ-dr-3eo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
