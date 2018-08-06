@@ -68,7 +68,7 @@ class APIClass: NSObject {
         guard let url = URL.init(string: urlString)else{
             return
         }
-        let cityIDs = cities.map{$0.id}.flatMap{$0}.joined(separator: ",")
+        let cityIDs = cities.map{$0.id}.compactMap{$0}.joined(separator: ",")
         let parameters: Parameters = ["APPID":"663d5c5f0fd44f1d46723061e497cfb3","id":cityIDs]
         Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
             guard let jsonResponse = response.result.value as? [String:Any],
