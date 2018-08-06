@@ -19,10 +19,17 @@ class AddLocationViewController: UIViewController,UISearchBarDelegate,UITableVie
     @IBAction func currentLocationSelected(_ sender: UIButton) {
        location = Location()
        location?.findLocation({ (cityLocation, locationErr) in
+            guard locationErr == nil else{
+                self.present(self.createErrorAlert("Location Error"), animated: true, completion: nil)
+                return
+            }
             APIClass.getWeather(location: cityLocation, completion: { (foundCity, weatherErr) in
+                guard weatherErr == nil else{
+                    self.present(self.createErrorAlert("Weather Error"), animated: true, completion: nil)
+                    return
+                }
                 self.city = foundCity
                 self.tableView.reloadData()
-                // alert for err
             })
         })
     }
@@ -30,7 +37,6 @@ class AddLocationViewController: UIViewController,UISearchBarDelegate,UITableVie
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     // MARK: - UISearchBarDelegate
@@ -72,6 +78,13 @@ class AddLocationViewController: UIViewController,UISearchBarDelegate,UITableVie
              masterVC.tableView.reloadData()
              self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    // MARK: - Helpers
+    func createErrorAlert(_ text:String)->UIAlertController {
+        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return alert
     }
     
     // MARK: - Navigation

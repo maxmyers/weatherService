@@ -33,6 +33,35 @@ class APIClass: NSObject {
         }
     }
 
+    // Get Weather By CLLocation
+    class func getWeather(location:CLLocation?,completion:@escaping (_ city:City?,_ CityError:Error?)->()){
+        guard let url = URL.init(string: weatherUrl),
+            let latitude  = location?.coordinate.latitude,
+            let longitude = location?.coordinate.longitude else{
+                completion(nil, CityError.ResponseError("Error With Location"))
+                return
+        }
+        let parameters: Parameters = ["lat": String(latitude),
+                                      "lon": String(longitude),
+                                      "APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
+        Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
+            let (city,cityErr) = APIClass.parseJson(response)
+            completion(city,cityErr)
+        }
+    }
+    
+    // Get Weather By ZipCode
+    class func getWeather(zipCode:String,completion:@escaping (_ city:City?,_ CityError:Error?)->()){
+        guard let url = URL.init(string: weatherUrl)else{
+            return
+        }
+        let parameters: Parameters = ["zip": zipCode,"APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
+        Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
+            let (city,cityErr) = APIClass.parseJson(response)
+            completion(city,cityErr)
+        }
+    }
+    
     // Get Weather For Multiple Cities
     class func getWeather(cities:[City],completion:@escaping (_ cities:[City]?,_ CityError:Error?)->()){
         let urlString = baseUrl + "/group"
@@ -65,35 +94,6 @@ class APIClass: NSObject {
         }
     }
     
-    // Get Weather By CLLocation
-    class func getWeather(location:CLLocation?,completion:@escaping (_ city:City?,_ CityError:Error?)->()){
-        guard let url = URL.init(string: weatherUrl),
-            let latitude  = location?.coordinate.latitude,
-            let longitude = location?.coordinate.longitude else{
-                completion(nil, CityError.ResponseError("Error With Location"))
-                return
-        }
-        let parameters: Parameters = ["lat": String(latitude),
-                                      "lon": String(longitude),
-                                      "APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
-        Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
-            let (city,cityErr) = APIClass.parseJson(response)
-            completion(city,cityErr)
-        }
-    }
-    
-    // Get Weather By ZipCode
-    class func getWeather(zipCode:String,completion:@escaping (_ city:City?,_ CityError:Error?)->()){
-        guard let url = URL.init(string: weatherUrl)else{
-            return
-        }
-        let parameters: Parameters = ["zip": zipCode,"APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
-        Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
-            let (city,cityErr) = APIClass.parseJson(response)
-            completion(city,cityErr)
-        }
-    }
-    
     // MARK: - JSON Parsing
     class func parseJson(_ data:DataResponse<Any>)->(City?,CityError?){
         guard let jsonResponse = data.result.value as? [String:Any],
@@ -109,6 +109,5 @@ class APIClass: NSObject {
         let pressure    = main["pressure"]     as? Double
         let city = City.init(name: cityName, humidity: humidity, pressure: pressure, temperature: temperature, minTemperature: minTemp, maxTemperature: maxTemp, id: String(describing: id))
         return(city,nil)
-        
     }
 }
