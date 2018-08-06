@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-2657" y="-224"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="Wsl-Uj-Zli">
             <objects>
-                <viewController id="mbo-Nc-0eq" sceneMemberID="viewController">
+                <viewController id="mbo-Nc-0eq" customClass="AddLocationViewController" customModule="WeatherService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ksQ-dr-3eo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,9 @@
                             <searchBar contentMode="redraw" placeholder="Enter ZipCode" translatesAutoresizingMaskIntoConstraints="NO" id="bKV-gJ-ZbI">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mbo-Nc-0eq" id="UP2-Vy-3rC"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0IL-6d-AYx">
                                 <rect key="frame" x="0.0" y="164" width="375" height="503"/>
@@ -73,6 +76,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mbo-Nc-0eq" id="a53-Nc-u5C"/>
+                                    <outlet property="delegate" destination="mbo-Nc-0eq" id="0uq-fd-1EQ"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGn-ir-Y3c">
                                 <rect key="frame" x="0.0" y="126" width="375" height="33"/>
@@ -80,6 +87,9 @@
                                 <state key="normal" title="Current Location">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="currentLocationSelected:" destination="mbo-Nc-0eq" eventType="touchUpInside" id="gBt-49-bia"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,6 +110,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tw8-H1-9a5"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="0IL-6d-AYx" id="NMO-Bg-TiI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rP-zf-zs0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +172,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAY-An-hYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314.4927536231885" y="-1287.2282608695652"/>
+            <point key="canvasLocation" x="-1241" y="-1293"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="WJa-4V-fJl">
@@ -309,6 +322,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NCO-9e-8Yz"/>
                     </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="g9L-in-ZJK" id="sGc-wk-VIe"/>
+                        <outlet property="highTemperatureLabel" destination="nSm-e1-mAL" id="liM-7v-JJE"/>
+                        <outlet property="humidityLabel" destination="lS2-tR-Rvr" id="VdG-re-SN5"/>
+                        <outlet property="lowTemperatureLabel" destination="FI1-57-hzb" id="Rnd-g4-LLA"/>
+                        <outlet property="pressureLabel" destination="kXW-Gp-Yc0" id="5hO-XA-dj9"/>
+                        <outlet property="temperatureLabel" destination="V9t-e3-Sff" id="B3w-zh-yLY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cl-aN-HgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

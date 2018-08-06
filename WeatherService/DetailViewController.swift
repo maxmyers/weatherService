@@ -9,27 +9,48 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    var city:City?
+    
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var lowTemperatureLabel: UILabel!
+    @IBOutlet weak var highTemperatureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        updateUI(city)
     }
-    */
-
+    
+    public func updateUI(_ newCity:City?){
+        city = newCity
+        if let name = newCity?.name{
+            cityNameLabel.text = name
+        }
+        if let temp = newCity?.temperature{
+            let tempString = convertToFahrenheit(kelvin: temp)
+            cityNameLabel.text?.append(": \(tempString)")
+            temperatureLabel.text = tempString
+        }
+        if let lowTemp = newCity?.minTemperature{
+            let lowTempString = convertToFahrenheit(kelvin: lowTemp)
+            lowTemperatureLabel.text = "Low: \(lowTempString)"
+        }
+        if let maxTemp = newCity?.maxTemperature{
+            let maxTempString = convertToFahrenheit(kelvin: maxTemp)
+            highTemperatureLabel.text = "High: \(maxTempString)"
+        }
+        if let humidity = newCity?.humidity{
+            humidityLabel.text = "Humidity: \(Int(humidity)) %"
+        }
+        if let pressure = newCity?.pressure{
+            pressureLabel.text = "Pressure: \(Int(pressure)) hpa"
+        }
+    }
 }

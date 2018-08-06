@@ -72,7 +72,7 @@ class MasterViewController: UITableViewController {
             performSegue(withIdentifier: "Detail", sender: self)
         }else{
             if let detailViewController = splitViewController.viewControllers[1] as? DetailViewController{
-                
+                detailViewController.updateUI(selectedCity)
             }
         }
     }
@@ -87,7 +87,7 @@ class MasterViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailViewController = segue.destination as? DetailViewController{
-            //detailViewController.city = selectedCity
+            detailViewController.city = selectedCity
         }
     }
 }

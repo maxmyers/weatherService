@@ -20,6 +20,10 @@ class CityTableViewCell: UITableViewCell {
         if let name = city?.name{
             nameLabel.text = name
         }
+        if let temperature = city?.temperature{
+            let fahrenheitString = convertToFahrenheit(kelvin: temperature)
+            nameLabel.text?.append(": \(fahrenheitString)")
+        }
     }
     
     func clearLabel(){
