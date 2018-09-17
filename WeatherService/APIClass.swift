@@ -20,13 +20,14 @@ class APIClass: NSObject {
     
     static var baseUrl = "https://api.openweathermap.org/data/2.5"
     static var weatherUrl = baseUrl + "/weather"
+    static var appId = "663d5c5f0fd44f1d46723061e497cfb3"
     
     // Get Weather By City Name
     class func getWeather(cityName:String,completion:@escaping (_ city:City?,_ CityError:Error?)->()){
         guard let url = URL.init(string: weatherUrl)else{
             return
         }
-        let parameters: Parameters = ["q": cityName,"APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
+        let parameters: Parameters = ["q": cityName,"APPID":appId]
         Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
             let (city,cityErr) = APIClass.parseJson(response)
             completion(city,cityErr)
@@ -43,7 +44,7 @@ class APIClass: NSObject {
         }
         let parameters: Parameters = ["lat": String(latitude),
                                       "lon": String(longitude),
-                                      "APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
+                                      "APPID":appId]
         Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
             let (city,cityErr) = APIClass.parseJson(response)
             completion(city,cityErr)
@@ -55,7 +56,7 @@ class APIClass: NSObject {
         guard let url = URL.init(string: weatherUrl)else{
             return
         }
-        let parameters: Parameters = ["zip": zipCode,"APPID":"663d5c5f0fd44f1d46723061e497cfb3"]
+        let parameters: Parameters = ["zip": zipCode,"APPID":appId]
         Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
             let (city,cityErr) = APIClass.parseJson(response)
             completion(city,cityErr)
@@ -69,7 +70,7 @@ class APIClass: NSObject {
             return
         }
         let cityIDs = cities.map{$0.id}.compactMap{$0}.joined(separator: ",")
-        let parameters: Parameters = ["APPID":"663d5c5f0fd44f1d46723061e497cfb3","id":cityIDs]
+        let parameters: Parameters = ["APPID":appId,"id":cityIDs]
         Alamofire.request(url, method: HTTPMethod.get, parameters: parameters, encoding:  URLEncoding(destination: .queryString), headers: nil).responseJSON{ (response) in
             guard let jsonResponse = response.result.value as? [String:Any],
                 let weatherArray = jsonResponse["list"] as? [[String:Any]] else{
